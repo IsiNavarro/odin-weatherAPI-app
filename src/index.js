@@ -1,5 +1,5 @@
 import css from './assets/style.css';
-import { getForecastForCity } from './api';
+import { weather } from './api';
 
-const city = 'New York';
-const forecastPromise = getForecastForCity(city);
+const weatherData = await weather.getData('london');
+console.log(weatherData.currentData);
