@@ -32,39 +32,48 @@
           </svg>
         </button>
       </form>
-      <div class="settings">
-        <button class="settings-metric active">°C, m/s</button>
-        <button class="settings-imperial">°F, mph</button>
-      </div>
+
     </header>
     <main>
       <div class="main-container">
         <div class="left">
           <div class="left-temperature">
-            <h2 id="city">Pekin, China</h2>
+            <h2 id="city"></h2>
             <div class="left-temperature-container">
               <img
                 id="weather-icon"
                 src="https://cdn.weatherapi.com/weather/128x128/day/113.png"
                 alt="weather"
               />
-              <div id="todayTemperature">34°C</div>
+              <div id="todayTemperature"></div>
+            </div>
+            <div>
+              Weather at:
+              <div id="local-time"></div>
             </div>
           </div>
           <div class="left-text">
-            <div id="Sky">Clear sky</div>
-            <div>Feels like <span id="feels-like">38°C</span></div>
+            <div id="Sky"></div>
+            <div>Feels like <span id="feels-like"></span></div>
           </div>
         </div>
         <div class="right">Whatever goes right</div>
         <div class="week">
           <h3>Weekly Forecast</h3>
-          <div class="week-forecast">
-            <div>Wednesday</div>
+          <div id="week-forecast">
+            </div>
           </div>
         </div>
       </div>
     </main>
-    <footer>Footer</footer>
+    <footer><p>
+            Copyright ©
+            <script>
+                document.write(new Date().getFullYear())
+            </script>
+            <a href="https://github.com/isiNavarro" target="_blank">
+                isiNavarro
+            </a>
+        </p></footer>
   </body>
 </html>

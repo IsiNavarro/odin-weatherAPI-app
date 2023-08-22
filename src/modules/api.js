@@ -18,11 +18,11 @@ export const weather = new (class weather {
     }
   }
   async handleData(data) {
+    if (!data) return;
     const {
       current: {
         temp_c: temperatureC,
         temp_f: temperatureF,
-        isDay: dayNight,
         wind_kph: windKph,
         wind_mph: windMph,
         wind_dir: windDir,
@@ -33,13 +33,12 @@ export const weather = new (class weather {
         uv: uvIndex,
         condition: { text: currentText, icon: currentIcon },
       },
-      forecast: forecastData,
+      forecast: { forecastday: forecastData },
       location: { name: cityName, country: countryName, localtime: time },
     } = data;
     return {
       temperatureC,
       temperatureF,
-      dayNight,
       windKph,
       windMph,
       windDir,
