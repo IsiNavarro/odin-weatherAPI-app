@@ -3,10 +3,13 @@ export const weather = new (class weather {
     this.key = '8371920c52b148569f7165904232108';
   }
   async getData(city) {
-    const path = `https://api.weatherapi.com/v1/forecast.json?key=${this.key}&q=${city}&days=8&aqi=no&alerts=no`;
+    const path = `https://api.weatherapi.com/v1/forecast.json?key=${this.key}&q=${city}&days=7&aqi=no&alerts=no`;
     try {
       const response = await fetch(path, { mode: 'cors' });
-      if (!response.ok) throw new Error(`Unable to find ${city}.`);
+
+      if (!response.ok) {
+        throw new Error(`Unable to find ${city}.`);
+      }
       const data = this.handleData(await response.json());
       return data;
     } catch (error) {
@@ -16,10 +19,41 @@ export const weather = new (class weather {
   }
   async handleData(data) {
     const {
-      current: currentData,
+      current: {
+        temp_c: temperatureC,
+        temp_f: temperatureF,
+        isDay: dayNight,
+        wind_kph: windKph,
+        wind_mph: windMph,
+        wind_dir: windDir,
+        feelslike_c: feelslikeC,
+        humidity: humidityPercentage,
+        feelslike_f: feelslikeF,
+        chance_of_rain: chanceOfRain,
+        uv: uvIndex,
+        condition: { text: currentText, icon: currentIcon },
+      },
       forecast: forecastData,
-      location: locationData,
+      location: { name: cityName, country: countryName, localtime: time },
     } = data;
-    return { currentData, forecastData, locationData };
+    return {
+      temperatureC,
+      temperatureF,
+      dayNight,
+      windKph,
+      windMph,
+      windDir,
+      chanceOfRain,
+      uvIndex,
+      feelslikeF,
+      feelslikeC,
+      humidityPercentage,
+      currentText,
+      currentIcon,
+      forecastData,
+      cityName,
+      countryName,
+      time,
+    };
   }
 })();

@@ -6,6 +6,65 @@
     <title>Weather API App</title>
   </head>
   <body>
-    <h1>This is a Weather App</h1>
+    <header>
+      <div id="head-icon">
+        <h1 id="myWeather">_myweather</h1>
+      </div>
+      <form class="search" action="#">
+        <input
+          class="search-input"
+          type="text"
+          placeholder="Search your city..."
+          autocomplete="off"
+        />
+        <button class="search-submit" type="submit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+        </button>
+      </form>
+      <div class="settings">
+        <button class="settings-metric active">°C, m/s</button>
+        <button class="settings-imperial">°F, mph</button>
+      </div>
+    </header>
+    <main>
+      <div class="main-container">
+        <div class="left">
+          <div class="left-temperature">
+            <h2 id="city">Pekin, China</h2>
+            <div class="left-temperature-container">
+              <img
+                id="weather-icon"
+                src="https://cdn.weatherapi.com/weather/128x128/day/113.png"
+                alt="weather"
+              />
+              <div id="todayTemperature">34°C</div>
+            </div>
+          </div>
+          <div class="left-text">
+            <div id="Sky">Clear sky</div>
+            <div>Feels like <span id="feels-like">38°C</span></div>
+          </div>
+        </div>
+        <div class="right">Whatever goes right</div>
+        <div class="week">
+          <h3>Weekly Forecast</h3>
+          <div class="week-forecast">
+            <div>Wednesday</div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>Footer</footer>
   </body>
 </html>
